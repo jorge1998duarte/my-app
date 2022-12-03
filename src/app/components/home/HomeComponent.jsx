@@ -132,7 +132,7 @@ const HomeComponent = () => {
       </div>
       <div className="d-grid gap-2 col-12 mx-auto pb-1">
         <button className="btn btn-outline-dark rounded-4">
-          limpiar carrito
+          Limpiar carrito
         </button>
       </div>
     </div>
