@@ -7,6 +7,8 @@ import App from "./App";
 import Login from "./app/views/login/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import "bootstrap-icons/font/bootstrap-icons.json";
+
 import Home from "./app/views/home/Home";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
