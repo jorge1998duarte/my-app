@@ -12,6 +12,7 @@ function App() {
     if (!sessionStorage.getItem("id")) {
       navigate("/login", { replace: true });
     }
+    // eslint-disable-next-line
   }, []);
 
   const handleClose = async () => {
