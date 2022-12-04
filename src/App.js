@@ -6,6 +6,7 @@ import { useEffect } from "react";
 
 function App() {
   const navigate = useNavigate();
+  const height = window.screen.height * 0.85;
 
   useEffect(() => {
     if (!sessionStorage.getItem("id")) {
@@ -29,7 +30,7 @@ function App() {
             if (response.status === 200) {
               sessionStorage.clear();
               Swal.fire({
-                html: `<p className="text-dark fs-1">${response.data} al Cerrar Sesión</p>`,
+                html: `<h4>${response.data} al Cerrar Sesión</h4>`,
                 showConfirmButton: false,
                 timer: 1000,
               });
@@ -48,12 +49,15 @@ function App() {
     <div className="container-fluid p-0">
       <div className="m-0 pt-4 bg-dark pb-1">
         <div className="m-auto text-center">
-          <div className="text-white text-justify align-text-bottom fs-2">
+          <div className="text-white text-justify align-text-bottom fs-3">
             Bienvenido, Usuario <br /> Escoge tus prendas
           </div>
         </div>
       </div>
-      <div className="m-auto top-25 w-75 pt-5 vh-100">
+      <div
+        className="m-auto top-25 w-75 pt-5"
+        style={{ height: height, overflowX: "auto" }}
+      >
         <Outlet />
         <div className="d-grid gap-2 col-12 mx-auto p-5 end">
           <button
@@ -64,6 +68,7 @@ function App() {
           </button>
         </div>
       </div>
+      <div className="m-0 pt-4 bg-dark p-3"></div>
     </div>
   );
 }

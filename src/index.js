@@ -7,8 +7,8 @@ import App from "./App";
 import Login from "./app/views/login/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
-import "bootstrap-icons/font/bootstrap-icons.json";
-
+import "bootstrap-icons/font/bootstrap-icons.css";
+import * as serviceWorker from "./serviceWorker";
 import Home from "./app/views/home/Home";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -28,4 +28,4 @@ root.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+serviceWorker.unregister();

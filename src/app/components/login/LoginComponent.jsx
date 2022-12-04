@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { registroCliente } from "../../../services/Services";
+import Swal from "sweetalert2";
 
 const LoginComponent = () => {
   const navigate = useNavigate();
   const [state, setState] = useState({
-    nombre: "cesar ruiz",
-    email: "ceshum@ceshum.com",
+    nombre: "",
+    email: "",
   });
 
   const handleChange = ({ target }) => {
@@ -15,12 +16,28 @@ const LoginComponent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await registroCliente(state).then((response) => {
-      if (response.status === 200) {
-        sessionStorage.setItem("id", response.data?.id);
-        navigate("/");
-      }
-    });
+    await registroCliente(state)
+      .then((response) => {
+        if (response.status === 200) {
+          Swal.fire({
+            title: `<h4>Inicio de Sesión Correcto</h4>`,
+            showConfirmButton: false,
+            icon: "success",
+            timer: 1000,
+          });
+          sessionStorage.setItem("id", response.data?.id);
+          navigate("/");
+        }
+      })
+      .catch((error) => {
+        Swal.fire({
+          title: `<h4>Inicio de Sesión Incorrecto</h4>`,
+          text: "<h4>El nombre o el correo son invalidos</h4>",
+          showConfirmButton: false,
+          icon: "error",
+          timer: 1000,
+        });
+      });
   };
 
   return (
@@ -52,6 +69,7 @@ const LoginComponent = () => {
               type="email"
               value={state.email}
               onChange={handleChange}
+              pattern="^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*$"
               required
             />
           </div>

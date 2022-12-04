@@ -25,6 +25,30 @@ export async function buscarProducto(data) {
   return await axios(config);
 }
 
+export async function agregarProducto(data) {
+  const config = {
+    url: `${url}AgregarProducto`,
+    method: "POST",
+    data: JSON.stringify(data),
+    headers: { "Content-Type": "application/json" },
+    redirect: "follow",
+  };
+
+  return await axios(config);
+}
+
+export async function quitarProducto(data) {
+  const config = {
+    url: `${url}QuitarProducto`,
+    method: "POST",
+    data: JSON.stringify(data),
+    headers: { "Content-Type": "application/json" },
+    redirect: "follow",
+  };
+
+  return await axios(config);
+}
+
 export async function terminarRegistoCliente(data) {
   const config = {
     url: `${url}TerminarRegistro`,
