@@ -79,7 +79,7 @@ const ListProducts = (props) => {
   };
 
   return (
-    <div className="mx-auto">
+    <div className="m-auto text-center">
       {products.map((product, index) => (
         <div
           key={index}
