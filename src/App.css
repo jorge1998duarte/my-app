@@ -1,0 +1,7 @@
+.App-footer {
+    position: static;
+    min-height: 2rem;
+    height: 2rem;
+    background: 212529;
+    bottom: 1px;
+}

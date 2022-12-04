@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 function App() {
   const navigate = useNavigate();
-  const height = window.screen.height * 0.85;
+  const height = window.screen.height;
 
   useEffect(() => {
     if (!sessionStorage.getItem("id")) {
@@ -47,7 +47,10 @@ function App() {
   };
 
   return (
-    <div className="container-fluid p-0">
+    <div
+      className="container-fluid p-0"
+      style={{ overflow: "none", height: height }}
+    >
       <div className="m-0 pt-4 bg-dark pb-1">
         <div className="m-auto text-center">
           <div className="text-white text-justify align-text-bottom fs-3">
@@ -57,7 +60,7 @@ function App() {
       </div>
       <div
         className="mx-auto text-center top-25 pt-5 p-1"
-        style={{ height: height, overflowX: "auto" }}
+        style={{ height: height * 0.99, overflowX: "auto" }}
       >
         <Outlet />
         <div className="d-grid gap-2 col-12 mx-auto p-5 end">
@@ -69,7 +72,10 @@ function App() {
           </button>
         </div>
       </div>
-      <div className="m-0 pt-4 bg-dark p-3"></div>
+      <div
+        className="bottom bg-dark vw-100 pt-5"
+        style={{ height: height * 0.01, overflowX: "auto" }}
+      ></div>
     </div>
   );
 }
