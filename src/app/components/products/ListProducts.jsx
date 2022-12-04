@@ -80,56 +80,59 @@ const ListProducts = (props) => {
 
   return (
     <div className="m-auto text-center">
-      {products.map((product, index) => (
-        <div
-          key={index}
-          className="card shadow p-3 mb-5 rounded"
-          style={{ width: "18rem", height: "auto" }}
-        >
-          <div className="position-absolute top-0 end-0">
-            <i
-              className="bi bi-x-circle m-1 p-1 fs-3"
-              onClick={() => handleDelete(product)}
-            ></i>
+      <div className="m-auto text-center">
+        {products.map((product, index) => (
+          <div key={index} className="col-10 p-1">
+            <div
+              className="card shadow p-3 mb-5 rounded"
+              style={{ width: "18rem", height: "auto" }}
+            >
+              <div className="position-absolute top-0 end-0">
+                <i
+                  className="bi bi-x-circle m-1 p-1 fs-3"
+                  onClick={() => handleDelete(product)}
+                ></i>
+              </div>
+              <div className="mt-3">
+                <img
+                  src={product.imagen ? product.imagen : NoImage}
+                  className="card-img-top img-fluid rounded"
+                  width="32px"
+                  height="32px"
+                  alt="..."
+                />
+              </div>
+              <div className="card-body">
+                <p className="card-text">
+                  {product?.nombre}
+                  <br />
+                  <span>
+                    Codigo: {product.sku} Inventario: {product.inventario}
+                  </span>
+                </p>
+              </div>
+              <div className="d-flex align-content-around">
+                <span className="m-2 pl-1 fs-3">TALLA: {product.talla}</span>
+              </div>
+              <div className="align-content-between">
+                {tallas.map((talla, index) => (
+                  <button
+                    className={`btn ${
+                      product?.talla === talla.talla
+                        ? "btn-dark"
+                        : "btn-outline-dark"
+                    } rounded-0 m-1`}
+                    key={index}
+                    onClick={() => handleSelected(product, talla.talla)}
+                  >
+                    {talla.talla}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="mt-3">
-            <img
-              src={product.imagen ? product.imagen : NoImage}
-              className="card-img-top img-fluid rounded"
-              width="32px"
-              height="32px"
-              alt="..."
-            />
-          </div>
-          <div className="card-body">
-            <p className="card-text">
-              {product?.nombre}
-              <br />
-              <span>
-                Codigo: {product.sku} Inventario: {product.inventario}
-              </span>
-            </p>
-          </div>
-          <div className="d-flex align-content-around">
-            <span className="m-2 pl-1 fs-3">TALLA: {product.talla}</span>
-          </div>
-          <div className="align-content-between">
-            {tallas.map((talla, index) => (
-              <button
-                className={`btn ${
-                  product?.talla === talla.talla
-                    ? "btn-dark"
-                    : "btn-outline-dark"
-                } rounded-0 m-1`}
-                key={index}
-                onClick={() => handleSelected(product, talla.talla)}
-              >
-                {talla.talla}
-              </button>
-            ))}
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
       <label className="form-label">
         {products?.length}/ {products?.length}
       </label>

@@ -174,10 +174,7 @@ const HomeComponent = () => {
   };
 
   return (
-    <div
-      className="m-auto text-center align-content-between"
-      style={{ width: "95% !important" }}
-    >
+    <div className="m-auto text-center">
       <div className="d-grid gap-2 col-12 mx-auto">
         {!showFittingRoom ? (
           <ListProducts products={products} setProducts={setProducts} />
@@ -185,7 +182,7 @@ const HomeComponent = () => {
           <FittingRoom products={products} setProducts={setProducts} />
         )}
       </div>
-      <div className="d-grid gap-2 col-12 mx-auto pb-1">
+      <div className="d-grid gap-2 col-12 mx-auto w-75 pb-1">
         {!showFittingRoom ? (
           <button
             className="btn btn-outline-dark rounded-4"
@@ -202,7 +199,7 @@ const HomeComponent = () => {
           </button>
         )}
       </div>
-      <div className="d-grid gap-2 col-12 mx-auto pb-1">
+      <div className="d-grid gap-2 col-12 mx-auto w-75 pb-1">
         {!showFittingRoom && (
           <button
             className="btn btn-outline-dark rounded-4"
@@ -212,7 +209,7 @@ const HomeComponent = () => {
           </button>
         )}
       </div>
-      <div className="d-grid gap-2 col-12 mx-auto pb-1">
+      <div className="d-grid gap-2 col-12 w-75 mx-auto pb-1">
         {!showFittingRoom && (
           <button
             className="btn btn-outline-dark rounded-4"
@@ -222,7 +219,7 @@ const HomeComponent = () => {
           </button>
         )}
       </div>
-      <div className="d-grid gap-2 col-12 mx-auto pb-1">
+      <div className="d-grid gap-2 col-12 mx-auto w-75 pb-1">
         {showFittingRoom && (
           <button
             className="btn btn-outline-dark rounded-4"

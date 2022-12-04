@@ -56,7 +56,7 @@ function App() {
         </div>
       </div>
       <div
-        className="m-auto top-25 w-75 pt-5"
+        className="mx-auto text-center top-25 pt-5 p-1"
         style={{ height: height, overflowX: "auto" }}
       >
         <Outlet />
